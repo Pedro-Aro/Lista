@@ -1,0 +1,38 @@
+namespace Lista
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            List<double> P1 = new List<double>() {9, 9, 7, 8};
+            List<double> P2 = new List<double>() {9, 8, 6, 8};
+            double soma1 = 0;
+            double soma2 = 0;
+            
+
+            for (int i = P1.Count - 1; i >= 0; i--)
+            {
+               soma1 = soma1 + P1[i];
+            }
+            for (int i = P2.Count - 1; i >= 0; i--)
+            {
+                soma2 = soma2 + P2[i];
+            }
+            double media1 = soma1 / P1.Count;
+            double media2 = soma2 / P2.Count;
+            Console.WriteLine($"A média das notas da turma 1 é {media1:F2} e da turma 2 é {media2:F2}");
+            if (media1 > media2)
+            {
+                Console.WriteLine("Turma 1 tem a melhor nota.");
+            }
+            else if (media1 < media2)
+            {
+                Console.WriteLine("Turma 2 tem a melhor nota.");
+            }
+            else
+            {
+                Console.WriteLine("Ambas as turmas tem a mesma nota.");
+            }
+        }
+    }
+}
