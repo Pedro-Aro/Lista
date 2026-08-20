@@ -1,0 +1,54 @@
+using System.Threading.Tasks.Dataflow;
+
+namespace Lista
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int numero = 1;
+            List<int> List1 = new List<int>();
+            for (int i = numero; i != 0;) 
+            {
+                
+                    Console.Write("Digite um número para inserí-lo, ou 0 para terminar de adicionar: ");
+                    numero = Convert.ToInt32(Console.ReadLine());
+                    i = numero;
+                if (i != 0)
+                {
+                    List1.Add(i);
+                }
+
+            }
+            List1.Sort();
+
+            Console.WriteLine("Lista encerrada");
+            Console.WriteLine(string.Join(",", List1));
+            List<int> List2 = new List<int>(List1);
+            List<int> List3 = new List<int>(List1);
+
+            List2.RemoveAll(x => x % 2 == 0);
+            List3.RemoveAll(x => x % 2 != 0);
+            List2.Sort();
+            List3.Sort();
+
+            Console.WriteLine();
+            Console.WriteLine("Lista de ímpares:");
+            Console.WriteLine(string.Join(",", List2));
+            Console.WriteLine();
+            Console.WriteLine("Lista de pares:");
+            Console.WriteLine(string.Join(",", List3));
+
+            int soma1 = 0;
+            int soma2 = 0;
+            int soma3 = 0;
+            foreach (int i in List1)
+            {
+                soma1 += i;
+                
+            }
+            Console.WriteLine();
+            Console.WriteLine($"A soma dos números é: {soma1}");
+        }
+    }
+}
