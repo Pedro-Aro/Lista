@@ -1,0 +1,62 @@
+using System.Threading.Tasks.Dataflow;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+
+namespace Lista
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int numero = 1;
+            List<int> Lista = new List<int>();
+
+            for (int i = numero; i != 0;)
+            {
+                Console.Write("Digite um número para inserí-lo, ou 0 para terminar de adicionar: ");
+                numero = Convert.ToInt32(Console.ReadLine());
+                i = numero;
+                if (i != 0)
+                {
+                    Lista.Add(i);
+                }
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("Lista abaixo:");
+            Console.WriteLine(string.Join(",", Lista));
+            Console.WriteLine();
+
+            List<int> listaRepetidos = new List<int>();
+            List<int> listaNaoRepetidos = new List<int>();
+
+          
+            foreach (int i in Lista)
+            {
+                
+                if (listaRepetidos.Contains(i))
+                {
+                    
+                }
+             
+                else if (listaNaoRepetidos.Contains(i))
+                {
+                    listaNaoRepetidos.Remove(i); 
+                    listaRepetidos.Add(i);      
+                }
+               
+                else
+                {
+                    listaNaoRepetidos.Add(i);   
+                }
+            }
+
+            Console.WriteLine("Lista de Repetidos:");
+            Console.WriteLine(string.Join(",", listaRepetidos));
+            Console.WriteLine();
+
+            Console.WriteLine("Lista de Não Repetidos:");
+            Console.WriteLine(string.Join(",", listaNaoRepetidos));
+
+        }
+    }
+}
