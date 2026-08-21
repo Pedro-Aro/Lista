@@ -1,0 +1,66 @@
+using System.Threading.Tasks.Dataflow;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+
+namespace Lista
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            List<string> respostasPositivas  = new List<string>();
+            List<string> respostas = new List<string>();
+
+            Console.WriteLine("Telefonou para a vítima? (s/n)");
+            string p1 = (Console.ReadLine().ToLower());
+            respostas.Add(p1);
+            Console.WriteLine();
+
+            Console.WriteLine("Esteve no local do crime? (s/n)");
+            string p2 = (Console.ReadLine().ToLower());
+            respostas.Add(p2);
+            Console.WriteLine();
+
+            Console.WriteLine("Mora perto da vítima? (s/n)");
+            string p3 = (Console.ReadLine().ToLower());
+            respostas.Add(p3);
+            Console.WriteLine();
+
+            Console.WriteLine("Devia para a vítima? (s/n)");
+            string p4 = (Console.ReadLine().ToLower());
+            respostas.Add(p4);
+            Console.WriteLine();
+
+            Console.WriteLine("Já trabalhou com a vítima? (s/n)");
+            string p5 = (Console.ReadLine().ToLower());
+            respostas.Add(p5);
+            Console.WriteLine();
+
+            foreach(string i in respostas)
+            {
+                if (i == "s")
+                {
+                    respostasPositivas.Add(i);
+                }
+            }
+            Console.WriteLine($"Você disse sim para {respostasPositivas.Count} respostas.");
+            if(respostasPositivas.Count == 2)
+            {
+                Console.WriteLine("Você é suspeito.");
+            }
+            if(respostasPositivas.Count == 3 || respostasPositivas.Count == 4)
+            {
+                Console.WriteLine("Você é cúmplice.");
+            }
+            if(respostasPositivas.Count == 5)
+            {
+                Console.WriteLine("Você é o assassino.");
+            }
+            if(respostasPositivas.Count < 2)
+            {
+                Console.WriteLine("Você é inocente.");
+            }
+           
+
+        }
+    }
+}
